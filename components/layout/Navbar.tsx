@@ -70,7 +70,7 @@ export function Navbar() {
               />
               <Logo
                 variant="full"
-                className="hidden h-8 w-auto drop-shadow-[0_0_0px_rgba(59,130,246,0)] transition-[filter] duration-300 group-hover:drop-shadow-[0_0_14px_rgba(59,130,246,0.55)] sm:block"
+                className="hidden h-16 w-auto drop-shadow-[0_0_0px_rgba(59,130,246,0)] transition-[filter] duration-300 group-hover:drop-shadow-[0_0_14px_rgba(59,130,246,0.55)] sm:block"
               />
             </a>
 

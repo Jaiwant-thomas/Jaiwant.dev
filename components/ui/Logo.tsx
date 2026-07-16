@@ -14,18 +14,6 @@ interface LogoProps {
   className?: string;
 }
 
-function textColorClass(tone: LogoTone) {
-  if (tone === "white") return "text-[#0B0F19]";
-  if (tone === "mono") return "text-current";
-  return "text-foreground";
-}
-
-function subtextColorClass(tone: LogoTone) {
-  if (tone === "white") return "text-[#0B0F19]/60";
-  if (tone === "mono") return "text-current/70";
-  return "text-muted";
-}
-
 export function Logo({ variant = "full", layout = "horizontal", tone = "gradient", className }: LogoProps) {
   if (variant === "icon") {
     return (

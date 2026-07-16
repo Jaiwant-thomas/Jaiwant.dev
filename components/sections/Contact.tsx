@@ -183,7 +183,6 @@ export function Contact() {
           >
             <GlassCard className="p-7 sm:p-10" tilt={false}>
               <div className="mb-7 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                <Sparkles className="h-3.5 w-3.5" />
                 Get In Touch
               </div>
               <h3 className="font-heading text-2xl font-semibold text-foreground sm:text-3xl">

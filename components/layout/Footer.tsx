@@ -12,7 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
           <div className="sm:col-span-2 md:col-span-2">
             <a href="#home" aria-label="Jaiwant Thomas — home" className="inline-flex items-center">
-              <Logo variant="full" className="h-9 w-auto" />
+              <Logo variant="full" className="h-16 w-auto" />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
               {SITE.tagline}

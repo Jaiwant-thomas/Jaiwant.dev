@@ -35,9 +35,9 @@ try {
   const info = await transporter.sendMail({
     from: '"Jaiwant Thomas" <jaiwantthomas69@gmail.com>', // sender address
     to: "jaiwantthomas69@gmail.com, jaiwantamrsofttech@gmail.com", // list of recipients
-    subject: "Hello", // subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // HTML body
+    subject: parsed.data.subject, // subject line
+    text: parsed.data.message, // plain text body
+    html: parsed.data.name+" " + parsed.data.email, // HTML body
   });
 
   console.log("Message sent: %s", info.messageId);

@@ -8,6 +8,7 @@ import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { CursorGlow } from "@/components/layout/CursorGlow";
 import { ScrollProgressBar } from "@/components/layout/ScrollProgressBar";
 import { ScrollToTopButton } from "@/components/layout/ScrollToTopButton";
+import { FloatingContactButtons } from "@/components/layout/FloatingContactButtons";
 import { SITE } from "@/lib/data";
 
 const spaceGrotesk = Space_Grotesk({
@@ -87,6 +88,7 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <Footer />
           <ScrollToTopButton />
+          <FloatingContactButtons />
         </ThemeProvider>
       </body>
     </html>
