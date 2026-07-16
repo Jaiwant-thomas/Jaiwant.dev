@@ -1,0 +1,21 @@
+<svg width="248" height="56" viewBox="0 0 248 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jaiwant Thomas logo">
+  <defs>
+    <linearGradient id="jt-badge-full" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="55%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="jt-dot-full" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="56" height="56" rx="15" fill="url(#jt-badge-full)"/>
+  <rect x="15.75" y="13.125" width="24.5" height="6.125" rx="3.0625" fill="white"/>
+  <rect x="24.9375" y="13.125" width="6.125" height="18.375" rx="3.0625" fill="white"/>
+  <path d="M28 28.875 V38.5 Q28 45.5 21 45.5 Q16.625 45.5 14.4375 42.4375" stroke="white" stroke-width="6.125" stroke-linecap="round" fill="none"/>
+
+  <text x="72" y="32" font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-size="22" font-weight="600" fill="#FFFFFF">Jaiwant Thomas</text>
+  <text x="72" y="47" font-family="'Inter', 'Segoe UI', sans-serif" font-size="10.5" font-weight="500" letter-spacing="2" fill="#94A3B8">FRONTEND DEVELOPER</text>
+</svg>

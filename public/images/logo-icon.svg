@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jaiwant Thomas logo mark">
+  <defs>
+    <linearGradient id="jt-badge" x1="2" y1="2" x2="62" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="55%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#jt-badge)"/>
+  <rect x="18" y="15" width="28" height="7" rx="3.5" fill="white"/>
+  <rect x="28.5" y="15" width="7" height="21" rx="3.5" fill="white"/>
+  <path d="M32 33 V44 Q32 52 24 52 Q19 52 16.5 48.5" stroke="white" stroke-width="7" stroke-linecap="round" fill="none"/>
+</svg>
