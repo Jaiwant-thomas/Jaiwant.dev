@@ -17,7 +17,7 @@ export function ThemeToggle() {
     <button
       type="button"
       aria-label="Toggle theme"
-      onClick={() => setTheme(isDark ? "dark" : "light")}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
       className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full glass"
     >
       <AnimatePresence mode="wait" initial={false}>

@@ -42,6 +42,7 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    window.dispatchEvent(new CustomEvent("mobile-menu-toggle", { detail: mobileOpen }));
   }, [mobileOpen]);
 
   return (

@@ -103,7 +103,7 @@ export function HeroAura() {
         initial={{ opacity: 0, y: -10, rotate: 3 }}
         animate={{ opacity: 1, y: 0, rotate: 3 }}
         transition={{ duration: 0.6, delay: 1.3 }}
-        className="absolute -right-4 top-[14%] hidden items-center gap-1.5 rounded-xl glass-strong px-3 py-2 shadow-lg lg:flex"
+        className="absolute -right-4 top-[2%] hidden items-center gap-1.5 rounded-xl glass-strong px-3 py-2 shadow-lg lg:flex"
       >
         <Eye className="h-3 w-3 text-accent" />
         <span className="relative flex h-1.5 w-1.5">

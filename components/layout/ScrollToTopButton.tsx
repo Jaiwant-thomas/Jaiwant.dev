@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import { useMobileMenuOpen } from "@/hooks/useMobileMenuOpen";
 
 export function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
+  const menuOpen = useMobileMenuOpen();
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 500);
@@ -19,7 +21,7 @@ export function ScrollToTopButton() {
 
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && !menuOpen && (
         <motion.button
           onClick={scrollToTop}
           initial={{ opacity: 0, scale: 0.5, y: 20 }}

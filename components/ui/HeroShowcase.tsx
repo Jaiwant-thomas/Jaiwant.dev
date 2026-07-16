@@ -1,142 +1,139 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lock, Image as ImageIcon, MousePointer2 } from "lucide-react";
+import { Code2, Smartphone, ShoppingBag, Users } from "lucide-react";
+import { STATS } from "@/lib/data";
 
-const GRID_CARDS = [
-  { icon: ImageIcon, tone: "from-primary/50 to-primary/10" },
-  { icon: MousePointer2, tone: "from-secondary/50 to-secondary/10" },
-  { icon: ImageIcon, tone: "from-accent/50 to-accent/10" },
+const yearsStat = STATS.find((s) => s.id === "experience");
+const clientsStat = STATS.find((s) => s.id === "clients");
+
+const SATELLITES = [
+  {
+    icon: Smartphone,
+    title: "Responsive",
+    accent: "secondary" as const,
+    className: "absolute -right-4 -top-5 z-20 w-[26%] sm:-right-7 sm:-top-6 sm:w-[24%] xl:-right-10 xl:-top-9",
+    rotate: 6,
+    floatDelay: 0.9,
+    floatDuration: 6.5,
+  },
+  {
+    icon: ShoppingBag,
+    title: "Shopify + WP",
+    accent: "accent" as const,
+    className: "absolute -bottom-5 -left-4 z-20 w-[30%] sm:-bottom-6 sm:-left-7 sm:w-[28%] xl:-bottom-10 xl:-left-10",
+    rotate: -5,
+    floatDelay: 0.3,
+    floatDuration: 7,
+  },
 ];
 
-const stack = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.6 } },
-};
-
-const piece = {
-  hidden: { opacity: 0, y: 10, scale: 0.94 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
-  },
+const ACCENT_STYLES = {
+  primary: { icon: "bg-primary/15 text-primary", border: "from-primary/40 to-primary/10" },
+  secondary: { icon: "bg-secondary/15 text-secondary", border: "from-secondary/40 to-secondary/10" },
+  accent: { icon: "bg-accent/15 text-accent", border: "from-accent/40 to-accent/10" },
 };
 
 export function HeroShowcase() {
   return (
-    <div className="relative w-[64%] sm:w-[58%]">
-      {/* back layer — mobile viewport, suggests responsive design */}
+    <div className="relative w-[62%] sm:w-[56%]">
+      {/* small floating trust badge */}
       <motion.div
-        initial={{ opacity: 0, y: 20, rotate: -14 }}
-        animate={{ opacity: 1, y: [0, -8, 0], rotate: -12 }}
+        initial={{ opacity: 0, scale: 0.7, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
         transition={{
-          opacity: { duration: 0.7, delay: 0.15 },
-          rotate: { duration: 0.7, delay: 0.15 },
-          y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 },
+          opacity: { duration: 0.6, delay: 1.1 },
+          scale: { duration: 0.6, delay: 1.1 },
+          y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
         }}
-        className="absolute -left-8 bottom-6 z-0 w-14 rounded-xl glass-strong p-2 shadow-xl sm:-left-10 sm:w-16"
+        whileHover={{ scale: 1.08 }}
+        className="absolute -right-10 bottom-8 z-30 hidden items-center gap-1.5 rounded-2xl glass-strong px-3 py-2 shadow-lg lg:flex xl:-right-14"
       >
-        <div className="mx-auto mb-1.5 h-1 w-4 rounded-full bg-foreground/20" />
-        <div className="space-y-1">
-          <div className="h-6 rounded-md bg-gradient-to-br from-primary/40 to-secondary/30" />
-          <div className="h-1 w-full rounded-full bg-foreground/15" />
-          <div className="h-1 w-2/3 rounded-full bg-foreground/10" />
+        <Users className="h-3.5 w-3.5 text-primary" />
+        <div className="leading-tight">
+          <p className="text-[11px] font-bold text-foreground">{clientsStat?.value}{clientsStat?.suffix}</p>
+          <p className="text-[8px] text-muted">Happy Clients</p>
         </div>
       </motion.div>
 
-      {/* middle layer — tablet viewport, peeking top-right */}
-      <motion.div
-        initial={{ opacity: 0, y: -20, rotate: 12 }}
-        animate={{ opacity: 1, y: [0, -10, 0], rotate: 10 }}
-        transition={{
-          opacity: { duration: 0.7, delay: 0.3 },
-          rotate: { duration: 0.7, delay: 0.3 },
-          y: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
-        }}
-        className="absolute -right-6 -top-6 z-0 w-24 rounded-xl glass-strong p-2.5 shadow-xl sm:-right-8 sm:w-28"
-      >
-        <div className="flex items-center justify-between">
-          <div className="h-1.5 w-6 rounded-full bg-gradient-to-r from-secondary to-accent" />
-          <div className="flex gap-0.5">
-            <span className="h-1 w-1 rounded-full bg-foreground/20" />
-            <span className="h-1 w-1 rounded-full bg-foreground/20" />
-          </div>
-        </div>
-        <div className="mt-2 grid grid-cols-3 gap-1">
-          <div className="col-span-2 h-8 rounded-md bg-gradient-to-br from-secondary/40 to-transparent" />
-          <div className="h-8 rounded-md bg-gradient-to-br from-accent/40 to-transparent" />
-        </div>
-      </motion.div>
+      {SATELLITES.map((s) => {
+        const styles = ACCENT_STYLES[s.accent];
+        return (
+          <motion.div
+            key={s.title}
+            initial={{ opacity: 0, scale: 0.85, rotate: s.rotate * 2 }}
+            animate={{ opacity: 1, scale: 1, rotate: s.rotate, y: [0, -9, 0] }}
+            transition={{
+              opacity: { duration: 0.7, delay: s.floatDelay },
+              scale: { duration: 0.7, delay: s.floatDelay },
+              rotate: { duration: 0.7, delay: s.floatDelay },
+              y: { duration: s.floatDuration, repeat: Infinity, ease: "easeInOut", delay: s.floatDelay + 0.5 },
+            }}
+            whileHover={{ scale: 1.06, rotate: 0, y: -4 }}
+            className={s.className}
+          >
+            <div className={`rounded-2xl bg-gradient-to-br ${styles.border} p-px shadow-lg transition-shadow duration-300 hover:shadow-xl`}>
+              <div className="flex flex-col items-center gap-1.5 rounded-[15px] glass-strong px-2 py-2.5 text-center">
+                <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${styles.icon}`}>
+                  <s.icon className="h-3.5 w-3.5" />
+                </span>
+                <p className="text-[9px] font-semibold leading-tight text-foreground">{s.title}</p>
+              </div>
+            </div>
+          </motion.div>
+        );
+      })}
 
-      {/* front layer — the centerpiece: a live website preview assembling itself */}
+      {/* main identity card — the centerpiece */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.94, y: 16 }}
+        initial={{ opacity: 0, scale: 0.92, y: 16 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         whileHover={{ y: -6, scale: 1.015 }}
-        transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 rounded-[26px] bg-gradient-animated p-px shadow-[0_20px_60px_-15px_rgba(0,0,0,0.35),0_8px_30px_-8px_rgba(139,92,246,0.35)] transition-shadow duration-500 hover:shadow-[0_28px_70px_-12px_rgba(0,0,0,0.4),0_12px_38px_-6px_rgba(139,92,246,0.5)]"
       >
-        <div className="relative overflow-hidden rounded-[25px] bg-background-soft/95 backdrop-blur-2xl">
+        <div className="relative overflow-hidden rounded-[25px] bg-background-soft/95 px-5 py-6 backdrop-blur-2xl sm:px-6 sm:py-7">
           <div
             className="pointer-events-none absolute inset-0 opacity-60"
             style={{ background: "linear-gradient(160deg, rgba(255,255,255,0.08), transparent 35%)" }}
           />
 
-          {/* browser chrome — an address bar, not an editor titlebar */}
-          <div className="relative flex items-center gap-2 border-b border-foreground/10 px-3.5 py-2.5 sm:px-4">
-            <span className="h-2 w-2 rounded-full bg-primary/50" />
-            <span className="h-2 w-2 rounded-full bg-secondary/50" />
-            <div className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-foreground/[0.04] px-3 py-1">
-              <Lock className="h-2.5 w-2.5 text-muted" />
-              <span className="text-[9px] font-medium text-muted sm:text-[10px]">jaiwantthomas.dev</span>
-            </div>
-          </div>
+          <motion.span
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-[0_0_24px_-4px_rgba(59,130,246,0.8)] sm:h-14 sm:w-14"
+          >
+            <Code2 className="h-6 w-6 sm:h-7 sm:w-7" />
+          </motion.span>
 
           <motion.div
-            variants={stack}
-            initial="hidden"
-            animate="visible"
-            className="relative space-y-3 px-3.5 py-3.5 sm:px-4 sm:py-4"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.75 }}
+            className="relative mt-4"
           >
-            {/* mini navbar */}
-            <motion.div variants={piece} className="flex items-center justify-between">
-              <div className="h-1.5 w-8 rounded-full bg-gradient-to-r from-primary to-secondary" />
-              <div className="hidden gap-1.5 sm:flex">
-                <div className="h-1 w-4 rounded-full bg-foreground/15" />
-                <div className="h-1 w-4 rounded-full bg-foreground/15" />
-                <div className="h-1 w-4 rounded-full bg-foreground/15" />
-              </div>
-              <div className="h-3.5 w-8 rounded-full bg-foreground/10" />
-            </motion.div>
+            <p className="font-heading text-base font-bold text-foreground sm:text-lg">Frontend Developer</p>
+            <p className="mt-1 text-[11px] text-muted sm:text-xs">React · Next.js · TypeScript</p>
+          </motion.div>
 
-            {/* headline block */}
-            <motion.div variants={piece} className="space-y-1.5 pt-1">
-              <div className="h-2.5 w-4/5 rounded-full bg-foreground/25" />
-              <div className="h-2.5 w-3/5 rounded-full bg-foreground/25" />
-              <div className="h-1.5 w-2/5 rounded-full bg-foreground/10" />
-            </motion.div>
-
-            {/* CTA buttons */}
-            <motion.div variants={piece} className="flex gap-2 pt-1">
-              <div className="h-5 w-16 rounded-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_16px_-2px_rgba(59,130,246,0.7)]" />
-              <div className="h-5 w-12 rounded-full border border-foreground/15" />
-            </motion.div>
-
-            {/* mini portfolio grid — the "design assembling" moment */}
-            <motion.div variants={piece} className="grid grid-cols-3 gap-1.5 pt-1.5">
-              {GRID_CARDS.map(({ icon: Icon, tone }, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ opacity: [0.85, 1, 0.85] }}
-                  transition={{ duration: 3 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
-                  className={`flex aspect-square items-center justify-center rounded-lg bg-gradient-to-br ${tone}`}
-                >
-                  <Icon className="h-3 w-3 text-foreground/50" />
-                </motion.div>
-              ))}
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="relative mt-5 flex items-center gap-4 border-t border-foreground/10 pt-4"
+          >
+            <div>
+              <p className="text-gradient font-heading text-lg font-bold sm:text-xl">
+                {yearsStat?.value}{yearsStat?.suffix}
+              </p>
+              <p className="text-[9px] text-muted sm:text-[10px]">Years Experience</p>
+            </div>
+            <div className="h-8 w-px bg-foreground/10" />
+            <div>
+              <p className="text-gradient font-heading text-lg font-bold sm:text-xl">100%</p>
+              <p className="text-[9px] text-muted sm:text-[10px]">Responsive Builds</p>
+            </div>
           </motion.div>
         </div>
       </motion.div>

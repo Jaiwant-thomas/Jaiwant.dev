@@ -107,7 +107,7 @@ export function Contact() {
                 <StatusBadge textClassName="text-xs font-medium text-foreground" />
               </div>
 
-              <div className="mt-7 space-y-3">
+              <div className="mt-7 space-y-3 pr-10 sm:pr-0">
                 {CONTACT_ROWS.map((row) => {
                   const Icon = row.icon;
                   const content = (
