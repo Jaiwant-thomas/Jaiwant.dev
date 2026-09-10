@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-const LOGO_SRC = "/images/Website-logo.png";
+const LOGO_SRC = "/images/jaiwant-logo.png";
 const LOGO_WIDTH = 400;
 const LOGO_HEIGHT = 208;
 
