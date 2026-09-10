@@ -22,7 +22,7 @@ export function Logo({ variant = "full", layout = "horizontal", tone = "gradient
         alt="Jaiwant Thomas logo"
         width={LOGO_WIDTH}
         height={LOGO_HEIGHT}
-        className={cn("h-10 w-10 object-cover", className)}
+        className={cn("h-14 w-14 object-cover", className)}
         priority
       />
     );
